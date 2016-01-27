@@ -75,4 +75,9 @@ public class ShopServiceImpl implements IShopService, ErrorCode {
 		return null;
 	}
 
+	@Override
+	public Integer insertList(List<Shop> list) {
+		return this.shopDao.insertList(list);
+	}
+
 }

@@ -104,4 +104,30 @@ public class ShopDaoImpl implements IShopDao {
 		return null;
 	}
 
+	@Override
+	public Integer insertList(List<Shop> list) {
+		int result = -1;
+		DBCollection collection = this.mongoTemplate.getCollection("shop");
+		List<DBObject> dbList = new ArrayList<DBObject>();
+		for (int i = 0; i < list.size(); i++) {
+			BasicDBObject doc = new BasicDBObject();
+			try {
+				doc = (BasicDBObject) BeanUtil.bean2DBObject(list.get(i));
+			} catch (IllegalArgumentException e) {
+				e.printStackTrace();
+			} catch (IllegalAccessException e) {
+				e.printStackTrace();
+			}
+			dbList.add(doc);
+		}
+		collection.setWriteConcern(WriteConcern.SAFE);
+		WriteResult writeResult = collection.insert(dbList);
+		if (null != writeResult) {
+			if (0 == writeResult.getN()) {
+				result = dbList.size();
+			}
+		}
+		return result;
+	}
+
 }
