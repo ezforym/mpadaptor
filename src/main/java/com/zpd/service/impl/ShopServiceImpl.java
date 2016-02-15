@@ -29,8 +29,7 @@ public class ShopServiceImpl implements IShopService, ErrorCode {
 
 	@Override
 	public int delete(int id) {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.shopDao.delete(id) > 0 ? SUCCESS : FAILED;
 	}
 
 	@Override

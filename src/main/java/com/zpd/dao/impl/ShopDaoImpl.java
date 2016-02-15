@@ -58,8 +58,17 @@ public class ShopDaoImpl implements IShopDao {
 
 	@Override
 	public int delete(int id) {
-		// TODO Auto-generated method stub
-		return 0;
+		int result = -1;
+		DBCollection collection = this.mongoTemplate.getCollection("shop");
+		BasicDBObject doc1 = new BasicDBObject();
+		doc1.append("id", id);
+		WriteResult writeResult = collection.remove(doc1);
+		if (null != writeResult) {
+			if (0 < writeResult.getN()) {
+				result = writeResult.getN();
+			}
+		}
+		return result;
 	}
 
 	@Override
