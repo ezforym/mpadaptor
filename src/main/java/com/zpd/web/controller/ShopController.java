@@ -28,7 +28,7 @@ public class ShopController implements ErrorCode {
 	}
 
 	/**
-	 * 新 增shop
+	 * 新增shop
 	 */
 	@RequestMapping("/add")
 	public String add(ModelMap model, Shop shop) {
