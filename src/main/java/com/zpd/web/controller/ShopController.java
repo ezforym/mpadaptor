@@ -28,7 +28,7 @@ public class ShopController implements ErrorCode {
 	}
 
 	/**
-	 * 新增shop
+	 * 新 增shop
 	 */
 	@RequestMapping("/add")
 	public String add(ModelMap model, Shop shop) {
@@ -42,7 +42,7 @@ public class ShopController implements ErrorCode {
 	}
 
 	/**
-	 * 删除shop
+	 * 删 除shop
 	 */
 	@RequestMapping("/delete")
 	public String delete(ModelMap model, Integer id) {
