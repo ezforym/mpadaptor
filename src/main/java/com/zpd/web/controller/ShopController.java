@@ -27,6 +27,9 @@ public class ShopController implements ErrorCode {
 		this.shopService = shopService;
 	}
 
+	/**
+	 * 新增shop
+	 */
 	@RequestMapping("/add")
 	public String add(ModelMap model, Shop shop) {
 		int code = FAILED;
@@ -38,6 +41,9 @@ public class ShopController implements ErrorCode {
 		return Const.VIEW_JSON;
 	}
 
+	/**
+	 * 删除shop
+	 */
 	@RequestMapping("/delete")
 	public String delete(ModelMap model, Integer id) {
 		int code = FAILED;
